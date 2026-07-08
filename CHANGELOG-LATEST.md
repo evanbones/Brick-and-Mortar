@@ -1,1 +1,3 @@
-- Ported to 1.20.1 (@MochiButter).
+### Fixed
+
+- Fixed log spam on Forge (@MochiButter).
