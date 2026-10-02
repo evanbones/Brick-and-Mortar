@@ -18,6 +18,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public static final TagKey<Item> C_BRICKS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "bricks"));
+    public static final TagKey<Item> C_BRICKS_NORMAL = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "bricks/normal"));
+    public static final TagKey<Item> C_BRICKS_NETHER = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "bricks/nether"));
 
     public static final TagKey<Item> ASH_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "ash_masonry"));
     public static final TagKey<Item> SOUL_ASH_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "soul_ash_masonry"));
@@ -38,6 +40,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         for (var itemObj : ModItems.ALL_BRICK_ITEMS) {
             bricksTag.addOptional(itemObj.getId());
         }
+
+        getOrCreateTagBuilder(C_BRICKS_NORMAL)
+                .add(ModItems.TAN_BRICK.get())
+                .add(ModItems.ORANGE_BRICK.get())
+                .add(ModItems.BROWN_BRICK.get())
+                .add(ModItems.CREAM_BRICK.get())
+                .add(ModItems.GRAY_BRICK.get())
+                .add(ModItems.BLUE_BRICK.get())
+                .add(ModItems.CLINKER_BRICK.get());
+
+        getOrCreateTagBuilder(C_BRICKS_NETHER)
+                .add(ModItems.RAW_NETHER_BRICK.get())
+                .add(ModItems.LIGHT_NETHER_BRICK.get())
+                .add(ModItems.CHARRED_NETHER_BRICK.get())
+                .add(ModItems.RAW_SOUL_NETHER_BRICK.get())
+                .add(ModItems.LIGHT_SOUL_NETHER_BRICK.get())
+                .add(ModItems.SOUL_NETHER_BRICK.get())
+                .add(ModItems.CHARRED_SOUL_NETHER_BRICK.get());
 
         var stairsTag = getOrCreateTagBuilder(ItemTags.STAIRS);
         var slabsTag = getOrCreateTagBuilder(ItemTags.SLABS);

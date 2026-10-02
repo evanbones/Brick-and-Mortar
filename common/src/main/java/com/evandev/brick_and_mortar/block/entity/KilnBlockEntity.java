@@ -168,7 +168,7 @@ public class KilnBlockEntity extends BaseContainerBlockEntity implements Worldly
         }
 
         if (entity.litTime == 0 && canCraft && !fuelStack.isEmpty()) {
-            entity.litDuration = entity.getBurnDuration(fuelStack);
+            entity.litDuration = entity.getBurnDuration(fuelStack) / 2;
             entity.litTime = entity.litDuration;
 
             if (entity.litTime > 0) {

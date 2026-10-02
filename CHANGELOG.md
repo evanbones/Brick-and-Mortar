@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2026-10-01
+
+### Added
+
+- Added some missing `c` tags.
+- Added Farmer's Delight cutting recipes.
+
+### Changed
+
+- Kilns now use fuel twice as fast (for vanilla Blast Furnace parity).
+
+### Fixed
+
+- Nether Brick and Resin Brick variants now use their proper block sounds.
+
 ## [1.2.1] - 2026-06-20
 
 ### Fixed

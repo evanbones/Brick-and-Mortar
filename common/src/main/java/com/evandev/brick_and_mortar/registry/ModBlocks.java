@@ -42,23 +42,23 @@ public class ModBlocks {
     public static final DecorativeFamily ORANGE_TILES = registerFamily("orange_tiles");
     public static final DecorativeFamily TAN_TILES = registerFamily("tan_tiles");
     public static final DecorativeFamily BRICK_TILES = registerFamily("brick_tiles");
-    public static final DecorativeFamily NETHER_TILES = registerFamily("nether_tiles");
+    public static final DecorativeFamily NETHER_TILES = registerFamily("nether_tiles", SoundType.NETHER_BRICKS);
 
-    public static final DecorativeFamily CHARRED_NETHER_BRICKS = registerFamily("charred_nether_bricks");
-    public static final DecorativeFamily CHARRED_SOUL_NETHER_BRICKS = registerFamily("charred_soul_nether_bricks");
-    public static final DecorativeFamily LIGHT_NETHER_BRICKS = registerFamily("light_nether_bricks");
-    public static final DecorativeFamily LIGHT_SOUL_NETHER_BRICKS = registerFamily("light_soul_nether_bricks");
-    public static final DecorativeFamily RAW_NETHER_BRICKS = registerFamily("raw_nether_bricks");
-    public static final DecorativeFamily RAW_SOUL_NETHER_BRICKS = registerFamily("raw_soul_nether_bricks");
-    public static final DecorativeFamily SOUL_NETHER_BRICKS = registerFamily("soul_nether_bricks");
+    public static final DecorativeFamily CHARRED_NETHER_BRICKS = registerFamily("charred_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily CHARRED_SOUL_NETHER_BRICKS = registerFamily("charred_soul_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily LIGHT_NETHER_BRICKS = registerFamily("light_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily LIGHT_SOUL_NETHER_BRICKS = registerFamily("light_soul_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily RAW_NETHER_BRICKS = registerFamily("raw_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily RAW_SOUL_NETHER_BRICKS = registerFamily("raw_soul_nether_bricks", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily SOUL_NETHER_BRICKS = registerFamily("soul_nether_bricks", SoundType.NETHER_BRICKS);
 
-    public static final DecorativeFamily CHARRED_NETHER_TILES = registerFamily("charred_nether_tiles");
-    public static final DecorativeFamily CHARRED_SOUL_NETHER_TILES = registerFamily("charred_soul_nether_tiles");
-    public static final DecorativeFamily LIGHT_NETHER_TILES = registerFamily("light_nether_tiles");
-    public static final DecorativeFamily LIGHT_SOUL_NETHER_TILES = registerFamily("light_soul_nether_tiles");
-    public static final DecorativeFamily RAW_NETHER_TILES = registerFamily("raw_nether_tiles");
-    public static final DecorativeFamily RAW_SOUL_NETHER_TILES = registerFamily("raw_soul_nether_tiles");
-    public static final DecorativeFamily SOUL_NETHER_TILES = registerFamily("soul_nether_tiles");
+    public static final DecorativeFamily CHARRED_NETHER_TILES = registerFamily("charred_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily CHARRED_SOUL_NETHER_TILES = registerFamily("charred_soul_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily LIGHT_NETHER_TILES = registerFamily("light_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily LIGHT_SOUL_NETHER_TILES = registerFamily("light_soul_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily RAW_NETHER_TILES = registerFamily("raw_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily RAW_SOUL_NETHER_TILES = registerFamily("raw_soul_nether_tiles", SoundType.NETHER_BRICKS);
+    public static final DecorativeFamily SOUL_NETHER_TILES = registerFamily("soul_nether_tiles", SoundType.NETHER_BRICKS);
 
     public static final DecorativeFamily BURNT_PURPUR_BLOCK = registerFamily("burnt_purpur_block");
     public static final DecorativeFamily BURNT_SOUL_PURPUR_BLOCK = registerFamily("burnt_soul_purpur_block");
@@ -87,17 +87,21 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHISELED_SOUL_PURPUR = registerChiseled("chiseled_soul_purpur");
 
     public static DecorativeFamily registerFamily(String name) {
-        RegistryObject<Block> base = BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
+        return registerFamily(name, SoundType.STONE);
+    }
+
+    public static DecorativeFamily registerFamily(String name, SoundType sound) {
+        RegistryObject<Block> base = BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).sound(sound)));
         String childName = name.replace("bricks", "brick").replace("tiles", "tile").replace("_block", "");
 
-        RegistryObject<Block> stairs = BLOCKS.register(childName + "_stairs", () -> new ModStairBlock(Blocks.BRICKS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
-        RegistryObject<Block> slab = BLOCKS.register(childName + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
+        RegistryObject<Block> stairs = BLOCKS.register(childName + "_stairs", () -> new ModStairBlock(Blocks.BRICKS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).sound(sound)));
+        RegistryObject<Block> slab = BLOCKS.register(childName + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).sound(sound)));
 
         RegistryObject<Block> wall = null;
         RegistryObject<Block> pillar = null;
 
         if (!name.contains("purpur") || name.contains("bricks") || name.contains("tiles")) {
-            wall = BLOCKS.register(childName + "_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
+            wall = BLOCKS.register(childName + "_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).sound(sound)));
         } else {
             pillar = BLOCKS.register(childName + "_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_PILLAR)));
         }

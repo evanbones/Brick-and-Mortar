@@ -16,5 +16,6 @@ public class BrickAndMortarDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModLangProvider::new);
         pack.addProvider(ModItemTagProvider::new);
         pack.addProvider(CreateHauntingRecipeProvider::new);
+        pack.addProvider(FarmersDelightRecipeProvider::new);
     }
 }
