@@ -61,7 +61,8 @@ tasks.named("runDatagen") {
 
         def compatMap = [
                 'ash': 'supplementaries',
-                'resin': 'vanillabackport'
+                'resin': 'vanillabackport',
+                'algal': 'architects_palette'
         ]
 
         if (dataDir.exists()) {

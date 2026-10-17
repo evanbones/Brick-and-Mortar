@@ -20,7 +20,7 @@ allow you to make **four** variants of any cookable bricks!
 
 - Ash Brick variants and Soul Ash Bricks.
 
-### Architect's Palette (planned)
+### Architect's Palette
 
 - Algal Brick variants and Soul Algal Bricks.
 

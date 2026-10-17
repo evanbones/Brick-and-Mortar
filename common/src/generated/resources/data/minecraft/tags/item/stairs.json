@@ -267,6 +267,66 @@
     {
       "id": "brick_and_mortar:soul_resin_brick_stairs",
       "required": false
+    },
+    {
+      "id": "brick_and_mortar:raw_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:light_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:burnt_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:soul_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:raw_soul_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:light_soul_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:burnt_soul_algal_brick_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:raw_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:light_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:burnt_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:soul_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:raw_soul_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:light_soul_algal_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "brick_and_mortar:burnt_soul_algal_tile_stairs",
+      "required": false
     }
   ]
 }

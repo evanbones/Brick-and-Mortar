@@ -1,0 +1,27 @@
+{
+    "fabric:load_conditions": [
+        {
+            "condition": "fabric:all_mods_loaded",
+            "values": [
+                "architects_palette"
+            ]
+        }
+    ],
+    "type": "brick_and_mortar:kiln_firing",
+    "cookingtime": 100,
+    "experience": 0.3,
+    "ingredient": {
+        "item": "architects_palette:algal_blend"
+    },
+    "requires_soul_base": true,
+    "result": {
+        "count": 1,
+        "id": "brick_and_mortar:raw_soul_algal_brick"
+    },
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "architects_palette"
+        }
+    ]
+}

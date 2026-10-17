@@ -37,6 +37,8 @@ public class ModLangProvider extends FabricLanguageProvider {
         translationBuilder.add("tag.item.brick_and_mortar.soul_ash_masonry", "Soul Ash Masonry");
         translationBuilder.add("tag.item.brick_and_mortar.resin_masonry", "Resin Masonry");
         translationBuilder.add("tag.item.brick_and_mortar.soul_resin_masonry", "Soul Resin Masonry");
+        translationBuilder.add("tag.item.brick_and_mortar.algal_masonry", "Algal Masonry");
+        translationBuilder.add("tag.item.brick_and_mortar.soul_algal_masonry", "Soul Algal Masonry");
 
         for (var blockObj : ModBlocks.ALL_DECORATIVE_BLOCKS) {
             translationBuilder.add(blockObj.get(), formatName(blockObj.getId().getPath()));

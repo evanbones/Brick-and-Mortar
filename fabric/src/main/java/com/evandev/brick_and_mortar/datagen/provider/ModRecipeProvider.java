@@ -1,6 +1,7 @@
 package com.evandev.brick_and_mortar.datagen.provider;
 
 import com.evandev.brick_and_mortar.Constants;
+import com.evandev.brick_and_mortar.compat.ArchitectsPaletteCompat;
 import com.evandev.brick_and_mortar.compat.CompatMods;
 import com.evandev.brick_and_mortar.compat.SupplementariesCompat;
 import com.evandev.brick_and_mortar.compat.VanillaBackportCompat;
@@ -208,6 +209,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         buildSupplementariesCompat(exporter);
         buildVanillaBackportCompat(exporter);
+        buildArchitectsPaletteCompat(exporter);
     }
 
     private void buildSupplementariesCompat(RecipeOutput exporter) {
@@ -280,6 +282,48 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         addBlockRecipe(vbExporter, VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICK.get(), VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICKS.base().get());
         addBlockRecipe(vbExporter, VanillaBackportCompat.SOUL_RESIN_BRICK.get(), VanillaBackportCompat.SOUL_RESIN_BRICKS.base().get());
         addBlockRecipe(vbExporter, VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICK.get(), VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICKS.base().get());
+    }
+
+    private void buildArchitectsPaletteCompat(RecipeOutput exporter) {
+        RecipeOutput apExporter = this.withConditions(exporter, ResourceConditions.allModsLoaded(CompatMods.ARCHITECTS_PALETTE));
+
+        Item algalBlend = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_blend"));
+        Item algalBrick = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick"));
+
+        addFiringSequence(apExporter, "algal_bricks", algalBlend, false,
+                ArchitectsPaletteCompat.RAW_ALGAL_BRICK.get(),
+                ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.get(),
+                algalBrick,
+                ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.get()
+        );
+
+        addFiringSequence(apExporter, "algal_bricks", algalBlend, true,
+                ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.get(),
+                ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.get(),
+                ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.get(),
+                ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.get()
+        );
+
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.RAW_ALGAL_BRICK.get(), ArchitectsPaletteCompat.RAW_ALGAL_BRICKS.base().get());
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.get(), ArchitectsPaletteCompat.LIGHT_ALGAL_BRICKS.base().get());
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.get(), ArchitectsPaletteCompat.BURNT_ALGAL_BRICKS.base().get());
+
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.get(), ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.base().get());
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.get(), ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICKS.base().get());
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.get(), ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICKS.base().get());
+        addBlockRecipe(apExporter, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.get(), ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICKS.base().get());
+
+        Block algalBricks = BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_bricks"));
+        addTileRecipe(apExporter, algalBricks, ArchitectsPaletteCompat.ALGAL_TILES.base().get());
+
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.RAW_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.RAW_ALGAL_TILES.base().get());
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.LIGHT_ALGAL_TILES.base().get());
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.BURNT_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.BURNT_ALGAL_TILES.base().get());
+
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.SOUL_ALGAL_TILES.base().get());
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.RAW_SOUL_ALGAL_TILES.base().get());
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_TILES.base().get());
+        addTileRecipe(apExporter, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICKS.base().get(), ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_TILES.base().get());
     }
 
     private void addPurpurBrickAndChiseledRecipes(RecipeOutput exporter, Block base, ModBlocks.DecorativeFamily brickFamily, RegistryObject<Block> chiseledBlock) {

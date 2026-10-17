@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-10-17
+
+### Added
+
+- Added Architect's Palette compatibility
+    - Algal Blend can now be fired in the Kiln into Raw, Light and Burnt Algal
+      Bricks, plus Soul variants of each.
+- Added Algal Brick and Algal Tile variants with stairs, slabs and walls, including tiles for Architect's Palette's own
+  Algal Bricks.
+- Added the `brick_and_mortar:algal_masonry` and `brick_and_mortar:soul_algal_masonry` tags.
+
 ## [1.2.2] - 2026-10-01
 
 ### Added

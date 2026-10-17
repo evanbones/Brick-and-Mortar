@@ -1,6 +1,7 @@
 package com.evandev.brick_and_mortar.datagen.provider;
 
 import com.evandev.brick_and_mortar.Constants;
+import com.evandev.brick_and_mortar.compat.ArchitectsPaletteCompat;
 import com.evandev.brick_and_mortar.compat.CompatMods;
 import com.evandev.brick_and_mortar.compat.SupplementariesCompat;
 import com.evandev.brick_and_mortar.compat.VanillaBackportCompat;
@@ -94,6 +95,25 @@ public class FarmersDelightRecipeProvider implements DataProvider {
         addSalvaging(futures, cache, VanillaBackportCompat.MELTED_SOUL_RESIN_BRICKS, VanillaBackportCompat.MELTED_SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
         addSalvaging(futures, cache, VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICKS, VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
         addSalvaging(futures, cache, VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICKS, VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
+
+        Item apAlgalBrick = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick"));
+
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.RAW_ALGAL_BRICKS, ArchitectsPaletteCompat.RAW_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICKS, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.BURNT_ALGAL_BRICKS, ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.ALGAL_TILES, apAlgalBrick, CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.RAW_ALGAL_TILES, ArchitectsPaletteCompat.RAW_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.LIGHT_ALGAL_TILES, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.BURNT_ALGAL_TILES, ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.SOUL_ALGAL_TILES, ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_TILES, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_TILES, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addSalvaging(futures, cache, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_TILES, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
 
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
     }

@@ -1,6 +1,7 @@
 package com.evandev.brick_and_mortar.datagen.provider;
 
 import com.evandev.brick_and_mortar.Constants;
+import com.evandev.brick_and_mortar.compat.ArchitectsPaletteCompat;
 import com.evandev.brick_and_mortar.compat.CompatMods;
 import com.evandev.brick_and_mortar.compat.SupplementariesCompat;
 import com.evandev.brick_and_mortar.compat.VanillaBackportCompat;
@@ -53,6 +54,11 @@ public class CreateHauntingRecipeProvider implements DataProvider {
         addHaunting(futures, cache, VanillaBackportCompat.BRIGHT_RESIN_BRICK.get(), VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
         addHaunting(futures, cache, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("minecraft", "resin_brick")), VanillaBackportCompat.SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
         addHaunting(futures, cache, VanillaBackportCompat.SMOKED_RESIN_BRICK.get(), VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICK.get(), CompatMods.VANILLA_BACKPORT);
+
+        addHaunting(futures, cache, ArchitectsPaletteCompat.RAW_ALGAL_BRICK.get(), ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.get(), ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick")), ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.get(), ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.get(), CompatMods.ARCHITECTS_PALETTE);
 
         addFamilyHaunting(futures, cache, ModBlocks.RAW_NETHER_BRICKS, ModBlocks.RAW_SOUL_NETHER_BRICKS);
         addFamilyHaunting(futures, cache, ModBlocks.LIGHT_NETHER_BRICKS, ModBlocks.LIGHT_SOUL_NETHER_BRICKS);
@@ -107,6 +113,20 @@ public class CreateHauntingRecipeProvider implements DataProvider {
         addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("minecraft", "resin_brick_stairs")), VanillaBackportCompat.SOUL_RESIN_BRICKS.stairs().get(), CompatMods.VANILLA_BACKPORT);
         addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("minecraft", "resin_brick_slab")), VanillaBackportCompat.SOUL_RESIN_BRICKS.slab().get(), CompatMods.VANILLA_BACKPORT);
         addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("minecraft", "resin_brick_wall")), VanillaBackportCompat.SOUL_RESIN_BRICKS.wall().get(), CompatMods.VANILLA_BACKPORT);
+
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.RAW_ALGAL_BRICKS, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICKS, CompatMods.ARCHITECTS_PALETTE);
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICKS, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICKS, CompatMods.ARCHITECTS_PALETTE);
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.BURNT_ALGAL_BRICKS, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICKS, CompatMods.ARCHITECTS_PALETTE);
+
+        addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_bricks")), ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.base().get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick_stairs")), ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.stairs().get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick_slab")), ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.slab().get(), CompatMods.ARCHITECTS_PALETTE);
+        addHaunting(futures, cache, BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(CompatMods.ARCHITECTS_PALETTE, "algal_brick_wall")), ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS.wall().get(), CompatMods.ARCHITECTS_PALETTE);
+
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.RAW_ALGAL_TILES, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_TILES, CompatMods.ARCHITECTS_PALETTE);
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.LIGHT_ALGAL_TILES, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_TILES, CompatMods.ARCHITECTS_PALETTE);
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.BURNT_ALGAL_TILES, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_TILES, CompatMods.ARCHITECTS_PALETTE);
+        addFamilyHaunting(futures, cache, ArchitectsPaletteCompat.ALGAL_TILES, ArchitectsPaletteCompat.SOUL_ALGAL_TILES, CompatMods.ARCHITECTS_PALETTE);
 
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
     }

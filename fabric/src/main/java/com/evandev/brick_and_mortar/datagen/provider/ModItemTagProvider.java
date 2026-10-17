@@ -1,6 +1,7 @@
 package com.evandev.brick_and_mortar.datagen.provider;
 
 import com.evandev.brick_and_mortar.Constants;
+import com.evandev.brick_and_mortar.compat.ArchitectsPaletteCompat;
 import com.evandev.brick_and_mortar.compat.SupplementariesCompat;
 import com.evandev.brick_and_mortar.compat.VanillaBackportCompat;
 import com.evandev.brick_and_mortar.registry.ModBlocks;
@@ -29,6 +30,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public static final TagKey<Item> SOUL_PURPUR_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "soul_purpur_masonry"));
     public static final TagKey<Item> RESIN_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "resin_masonry"));
     public static final TagKey<Item> SOUL_RESIN_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "soul_resin_masonry"));
+    public static final TagKey<Item> ALGAL_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "algal_masonry"));
+    public static final TagKey<Item> SOUL_ALGAL_MASONRY = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "soul_algal_masonry"));
 
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
@@ -120,6 +123,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICK.getId())
                 .addOptional(VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICK.getId());
         addFamiliesToTag(soulResin, VanillaBackportCompat.SOUL_RESIN_BRICKS, VanillaBackportCompat.MELTED_SOUL_RESIN_BRICKS, VanillaBackportCompat.BRIGHT_SOUL_RESIN_BRICKS, VanillaBackportCompat.SMOKED_SOUL_RESIN_BRICKS);
+
+        var algal = getOrCreateTagBuilder(ALGAL_MASONRY)
+                .addOptional(ArchitectsPaletteCompat.RAW_ALGAL_BRICK.getId())
+                .addOptional(ArchitectsPaletteCompat.LIGHT_ALGAL_BRICK.getId())
+                .addOptional(ArchitectsPaletteCompat.BURNT_ALGAL_BRICK.getId());
+        addFamiliesToTag(algal, ArchitectsPaletteCompat.RAW_ALGAL_BRICKS, ArchitectsPaletteCompat.LIGHT_ALGAL_BRICKS, ArchitectsPaletteCompat.BURNT_ALGAL_BRICKS, ArchitectsPaletteCompat.ALGAL_TILES, ArchitectsPaletteCompat.RAW_ALGAL_TILES, ArchitectsPaletteCompat.LIGHT_ALGAL_TILES, ArchitectsPaletteCompat.BURNT_ALGAL_TILES);
+
+        var soulAlgal = getOrCreateTagBuilder(SOUL_ALGAL_MASONRY)
+                .addOptional(ArchitectsPaletteCompat.SOUL_ALGAL_BRICK.getId())
+                .addOptional(ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICK.getId())
+                .addOptional(ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICK.getId())
+                .addOptional(ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICK.getId());
+        addFamiliesToTag(soulAlgal, ArchitectsPaletteCompat.SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_BRICKS, ArchitectsPaletteCompat.SOUL_ALGAL_TILES, ArchitectsPaletteCompat.RAW_SOUL_ALGAL_TILES, ArchitectsPaletteCompat.LIGHT_SOUL_ALGAL_TILES, ArchitectsPaletteCompat.BURNT_SOUL_ALGAL_TILES);
     }
 
     private void addFamiliesToTag(FabricTagProvider<Item>.FabricTagBuilder builder, ModBlocks.DecorativeFamily... families) {
